@@ -1,1 +1,19 @@
-// nikola er mødt ind
+body { /* her ændre vi bodys margin til 0 sådan vi ikke får en hvid kant rundt om hele siden */
+    margin: 0;
+}
+
+.øverstediv { /* her bruger vi klassen øverstediv og slår det op ved hjælp af . */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 100px;
+    color : white;
+    background-color: #222;
+}
+
+#search {   /* her bruger vi id'et search og slår det op ved hjælp af # */
+    width: 1200px;
+    height: 45px;
+    font-size: 18px;
+}
