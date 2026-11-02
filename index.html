@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+</style>
+<body>
+    <div class="site_layout">
+        <div class="main_column">
+            <header class="page_header">
+                <textarea id="search_input" placeholder="Search..."></textarea>
+                <!-- sends the user to the search results container -->
 
+                <button class="home_btn">
+                    <img src="icons/png/home.png" alt="Home">
+                </button>
+                <!-- changes to the home page container -->
+
+                <div class="credits_info">
+                    <span>Credits</span>
+                    <p class="credit_count">0</p>
+                    <!-- displays the user's current credit balance -->
+                    
+                    <button class="credits_icon">
+                        <img src="icons/png/layers.png" alt="Credits">
+                        <!-- lets the user add to their credit balance -->
+                    </button>
+                </div>
+            </header>
+
+            <main class="main_content_container">
+                <div class="home_page">
+                    <!-- Home page (page of suggested songs) -->
+                    <div class="suggested_songs">
+                        <h3>Suggested Songs</h3>
+                        <ul id="suggested_list">
+                            <!-- Suggested songs will be dynamically added here -->
+                        </ul>
+                    </div>
+
+                    <div class="genre_list">
+                        <details class="genres_panel">
+                            <summary>Genres</summary>
+                            <ul id="genre_list"></ul>
+                        </details>
+                    </div>
+
+                    <div class="previously_played_songs">
+                        <h3>Previously Played Songs</h3>
+                        <ul id="previously_played_list">
+                            <!-- Previously played songs will be dynamically added here -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="search_results" hidden>
+                    <!-- Search results will be added here -->
+                    <div class="search_by_song">
+                        <h3>Songs</h3>
+                        <ul id="track_list">
+                            <!-- Search results of songs will be dynamically added here -->
+                        </ul>
+                    </div>
+
+                    <div class="search_by_album">
+                        <h3>Albums</h3>
+                        <ul id="album_list">
+                            <!-- Search results of albums will be dynamically added here -->
+                        </ul>
+                    </div>
+
+                    <div class="search_by_artist">
+                        <h3>Artists</h3>
+                        <ul id="artist_list">
+                            <!-- Search results of artists will be dynamically added here -->
+                        </ul>
+                    </div>
+
+                    <div class="search_by_genre">
+                        <h3>Genres</h3>
+                        <ul id="search_genre_list">
+                            <!-- Search results of genres will be dynamically added here -->
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
+</body>
+</html>
