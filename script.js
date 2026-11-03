@@ -1,4 +1,4 @@
-const searchInput = document.getElementById("search_input");
+const searchInput = document.getElementById("search");
 const searchResults = document.getElementById("search_results");
 
 const allAlbums = [];
