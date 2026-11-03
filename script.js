@@ -6,7 +6,6 @@ function jukebox () {
 let trackListElement = document.getElementById("tracks");
 
 fetchData("albums.json").then((data) => {
-  console.log(data);
   const albums = data.albums;
   for (let i = 0; i < albums.length; i++) {
     //console.log(albums[i].title);
