@@ -1,1 +1,41 @@
-// nikola er mødt ind
+body { /* her ændre vi bodys margin til 0 sådan vi ikke får en hvid kant rundt om hele siden */
+    margin: 0;
+}
+
+.øverstediv { /* her bruger vi klassen øverstediv og slår det op ved hjælp af . */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 100px;
+    color : white;
+    background-color: #222;
+}
+
+#search {   /* her bruger vi id'et search og slår det op ved hjælp af # */
+    width: 1200px;
+    height: 45px;
+    font-size: 18px;
+}
+
+#sidebar {
+    position: fixed;
+    top: 100px;
+    right: 0;
+    width: 400px;
+    height: 100%;
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.albumcover {
+    width: 100%;
+    height: auto;
+}
+
+#sangtitel {
+   font-size: 24px;
+   
+}

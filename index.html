@@ -3,12 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jukebox</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<style>
-    
-</style>
 <body>
+
+    <div class="øverstediv">
+    
+        <button id="homebutton">
+            <p>Jukebox</p>
+        </button>
+    
+        <input id="search" type="search" placeholder="søg efter en sang her">
+    
+        <div class="creditsinfo">
+         
+            <button id="credit" class="creditsknap"></button>
+
+            <span>
+                credits
+            </span>
+
+            <p class="creditcount">
+            <!-- Credit tælle funktion--> 
+            </p>
+
+        </div>
+    </div>
+    <div class="maindiv">
+        <p class="reklame">Skal din sang på? Køb dine credits her</p>
+        <button id="credits2" class="creditsknap">
+            <p>Køb credits</p>
+        </button>
+        <list class="list" id="listgenre">Genre</list>
+        <list class="list" id="listartist">Artist</list>
+        <list class="list" id="listalbums">Albums</list>
+    </div>
     <div class="site_layout">
         <div class="main_column">
             <header class="page_header">
@@ -66,6 +96,18 @@
                         </ul>
                     </div>
 
+    <div>
+        <div id="sidebar">
+         <img src="vinyl-album.png" class="albumcover">
+         <p id="sangtitel">sangtitel</p>
+         <progress value="50" max="100"></progress>
+
+        </div>
+        <div id="kø">
+            <list class="que">kø</list>
+        </div>
+    </div>
+
                     <div class="search_by">
                         <h3>Albums</h3>
                         <ul id="album_list">
@@ -91,5 +133,6 @@
         </div>
     </div>
 </body>
+<script src="script.js"></script>
     <script src="script.js"></script>
 </html>
