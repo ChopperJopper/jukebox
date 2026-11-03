@@ -35,6 +35,17 @@ body { /* her ændre vi bodys margin til 0 sådan vi ikke får en hvid kant rund
     height: auto;
 }
 
+.albumcover {
+    width: 300px;
+    height: 300px;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
 #sangtitel {
    font-size: 24px;
    
