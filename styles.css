@@ -2,7 +2,7 @@ body { /* her ændre vi bodys margin til 0 sådan vi ikke får en hvid kant rund
     margin: 0;
 }
 
-.øverstediv { /* her bruger vi klassen øverstediv og slår det op ved hjælp af . */
+.overstediv { /* her bruger vi klassen øverstediv og slår det op ved hjælp af . */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,4 +49,10 @@ body { /* her ændre vi bodys margin til 0 sådan vi ikke får en hvid kant rund
 #sangtitel {
    font-size: 24px;
    
+}
+
+.creditinfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }

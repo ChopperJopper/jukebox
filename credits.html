@@ -5,11 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Køb credits - Jukebox</title>
-    <link rel="stylesheet" href="credits.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="overstediv">
+    
+        <button id="homebutton" onclick="window.location.href='index.html'">
+            <p>Jukebox</p>
+        </button>
+    
+        <input id="search" type="search" placeholder="søg efter en sang her">
+    
+         <div class="creditinfo">
+            <p class="creditcount">0</p>
+            <!-- displays the user's current credit balance -->
+                    <button class="credits_icon" onclick="window.location.href='credits.html'">
+                        <img src="icons/png/layers.png" alt="Credits">
+                        <!-- lets the user add to their credit balance -->
+                    </button>
+        </div>
+    </div>
 
-    <h1>Køb credits</h1>
+<div class="maindiv">
+        <h1>Køb credits</h1>
 
     <p>Vælg den credit-pakke, du ønsker:</p>
 
@@ -44,6 +62,17 @@
     <button onclick="window.location.href='index.html'">
         Tilbage til Jukebox
     </button>
+    </div>
+<div>
+        <div id="sidebar">
+         <img src="vinyl-album.png" class="albumcover">
+         <p id="sangtitel">sangtitel</p>
+         <progress value="50" max="100"></progress>
 
+        </div>
+        <div id="kø">
+            <list class="que">kø</list>
+        </div>
+    </div>
 </body>
 </html>
