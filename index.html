@@ -56,7 +56,7 @@
                     </div>
                 </div>
         <p class="reklame">Skal din sang på? Køb dine credits her</p>
-        <button id="credits2" class="creditsknap">
+        <button id="credits2" class="creditsknap" onclick="window.location.href='credits.html'">
             <p>Køb credits</p>
         </button>
         <div class="suggested_songs">
@@ -170,6 +170,20 @@
             </main>
         </div> 
     </div> -->
-</body>
+    <script src="script.js"></script>
+
+ <script src="credits.js"></script>
+
+<script>
+    let credits = localStorage.getItem("credits") || 0;
+
+    document.querySelector(".creditcount").textContent = credits;
+</script>
+<script src="credits.js"></script>
 <script src="script.js"></script>
+
+<script>
+    updateCreditCount();
+</script>
+</body>
 </html>
