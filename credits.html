@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -8,8 +7,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <div class="overstediv">
-    
         <button id="homebutton" onclick="window.location.href='index.html'">
         <svg class="logo-ikon" viewBox="0 0 32 40" width="32" height="40">
         <rect x="0"  y="10" width="5" height="20" rx="2.5"></rect>
@@ -19,66 +18,70 @@
         </svg>
         <span>jukebox</span>
         </button>
-    
+
         <input id="search" type="search" placeholder="søg efter en sang her">
-    
-         <div class="creditinfo">
+
+        <div class="creditinfo">
             <p class="creditcount">0</p>
-            <!-- displays the user's current credit balance -->
-                    <button class="credits_icon" onclick="window.location.href='credits.html'">
-                        <img src="icons/png/layers.png" alt="Credits">
-                        <!-- lets the user add to their credit balance -->
-                    </button>
+
+            <button class="credits_icon" onclick="window.location.href='credits.html'">
+                <img src="icons/png/layers.png" alt="Credits">
+            </button>
         </div>
     </div>
 
-<div class="maindiv">
+    <div class="maindiv">
         <h1>Køb credits</h1>
+        <p>Vælg den credit-pakke, du ønsker:</p>
 
-    <p>Vælg den credit-pakke, du ønsker:</p>
+        <div class="creditpakker">
+            <button onclick="selectcredits(1)">
+                <h2>1 credit</h2>
+                <p>2 kr.</p>
+            </button>
 
-    <div class="creditpakker">
-        <button>
-            <h2>1 credit</h2>
-            <p>2 kr.</p>
-        </button>
-
-        <button>
-            <h2> 3 credits</h2>
-            <p> 5kr.</p>
-        </button>
-
-        
-    </div>
-
-    <h2>Vælg betalingsmetode</h2>
-
-    <div class="betalingsmetoder">
-
-        <button>MobilePay</button>
-
-        <button>Mastercard</button>
-
-        <button>Dankort</button>
-
-        <button>Betal oppe i baren</button>
-
-    </div>
-
-    <button onclick="window.location.href='index.html'">
-        Tilbage til Jukebox
-    </button>
-    </div>
-<div>
-        <div id="sidebar">
-         <img src="vinyl-album.png" class="albumcover">
-         <p id="sangtitel">sangtitel</p>
-         <progress value="50" max="100"></progress>
-
+            <button onclick="selectcredits(3)">
+                <h2>3 credits</h2>
+                <p>5 kr.</p>
+            </button>
         </div>
-        <div id="kø">
-            <list class="que">kø</list>
+
+        <button onclick="window.location.href='index.html'">
+            Tilbage til Jukebox
+        </button>
+    </div>
+
+    <div id="sidebar">
+        <img src="vinyl-album.png" class="albumcover">
+        <p id="sangtitel">sangtitel</p>
+        <progress value="50" max="100"></progress>
+    </div>
+
+    <div id="kø">
+        <list class="que">kø</list>
+    </div>
+
+    <!-- POPUP MED BETALINGSMETODER -->
+    <div id="paymentPopup" class="popup">
+        <div class="popup-content" id="paymentOptions">
+            <h2>Vælg betalingsmetode</h2>
+            <button onclick="buycredits('MobilePay')">MobilePay</button>
+            <button onclick="buycredits('Betalingskort')">Betalingskort</button>
+            <button onclick="buycredits('Betal oppe i baren')">Betal oppe i baren</button>
+            <button onclick="closePopup()">Annuller</button>
+        </div>
+
+        <!-- POPUP NÅR KØBET ER GENNEMFØRT -->
+        <div class="popup-content" id="purchaseSuccess" style="display: none;">
+            <h2>Køb gennemført!</h2>
+            <p id="successMessage"></p>
+            <button onclick="closePopup()">Fortsæt</button>
         </div>
     </div>
+
+    <script src="credit.js"></script>
+    <script>
+        updateCreditCount();
+    </script>
 </body>
 </html>
