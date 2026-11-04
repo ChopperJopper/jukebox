@@ -1,5 +1,8 @@
 body { /* her ændre vi bodys margin til 0 sådan vi ikke får en hvid kant rundt om hele siden */
+ /* her ændrer vi bodys margin til 0 sådan vi ikke får en hvid kant rundt om hele siden */
     margin: 0;
+    background-color: #15130f;   /* sort baggrund */
+    color: white;                /* hvid tekst, så den kan læses på det sorte */
 }
 
 .overstediv { /* her bruger vi klassen øverstediv og slår det op ved hjælp af . */
@@ -8,8 +11,8 @@ body { /* her ændre vi bodys margin til 0 sådan vi ikke får en hvid kant rund
     justify-content: center;
     gap: 20px;
     height: 100px;
-    color : white;
-    background-color: #222;
+    color : rgb(8, 7, 7);
+    background-color: #121212;
 }
 
 #search {   /* her bruger vi id'et search og slår det op ved hjælp af # */
@@ -24,7 +27,7 @@ body { /* her ændre vi bodys margin til 0 sådan vi ikke får en hvid kant rund
     right: 0;
     width: 400px;
     height: 100%;
-    background-color: #222;
+    background-color: #121212;
     color: white;
     padding: 20px;
     text-align: center;
@@ -55,4 +58,61 @@ body { /* her ændre vi bodys margin til 0 sådan vi ikke får en hvid kant rund
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+
+.titel-raekke {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 10px 10px 0;    /* luft: 32px oppe, 40px til siderne, 0 nede */
+}
+.titel {
+    margin: 0 0 16px;
+    font-size: 40px;
+    line-height: 1.1;
+}
+
+.creditsknap {
+    padding: 12px 26px;      /* mindre luft inde i knappen */
+    height: auto;            /* sikrer, at knappen ikke er gjort høj et andet sted */
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f2a2b;
+    background-color: #d0ac52;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.15s, filter 0.15s;
+}
+.creditsknap:hover {
+    filter: brightness(1.08);    /* bliver en smule lysere */
+    transform: translateY(-2px); /* løfter sig lidt */
+}
+
+.creditsknap:active {
+    transform: translateY(0);
+}
+
+#homebutton {
+    display: flex;
+    align-items: center;
+    gap: 12px;               /* afstand mellem stregerne og teksten */
+    padding: 0;
+    background: none;        /* fjerner den grå knap-baggrund */
+    border: none;            /* fjerner den grå kant */
+    cursor: pointer;
+}
+
+#homebutton .logo-ikon rect {
+    fill: #c9a96a;           /* guldfarven på stregerne */
+}
+
+#homebutton span {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #d9d0be;          /* lys beige */
 }
