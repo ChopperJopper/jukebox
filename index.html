@@ -19,42 +19,43 @@
         <div class="creditinfo">
             <p class="creditcount">0</p>
             <!-- displays the user's current credit balance -->
-                    <button class="credits_icon" onclick="window.location.href='credits.html'">
-                        <img src="icons/png/layers.png" alt="Credits">
-                        <!-- lets the user add to their credit balance -->
-                    </button>
+            <button class="credits_icon" onclick="window.location.href='credits.html'">
+                <img src="coin-money-svgrepo-com.svg" alt="Credits" height="30" width="30">
+                <!-- lets the user add to their credit balance -->
+            </button>
         </div>
     </div>
     <div class="maindiv">
         <div id="search_results" hidden>
-                    <!-- Search results will be added here -->
-                    <div class="search_by">
-                        <h3>Songs</h3>
-                        <ul id="track_list">
-                            <!-- Search results of songs will be dynamically added here -->
-                        </ul>
-                    </div>
-                    <div class="search_by">
-                        <h3>Albums</h3>
-                        <ul id="album_list">
-                            <!-- Search results of albums will be dynamically added here -->
-                        </ul>
-                    </div>
+            <!-- Search results will be added here -->
+            <div class="search_by">
+                <h3>Songs</h3>
+                <ul id="track_list">
+                    <!-- Search results of songs will be dynamically added here -->
+                </ul>
+            </div>
+            <div class="search_by">
+                <h3>Albums</h3>
+                <ul id="album_list">
+                    <!-- Search results of albums will be dynamically added here -->
+                </ul>
+            </div>
 
-                    <div class="search_by">
-                        <h3>Artists</h3>
-                        <ul id="artist_list">
-                            <!-- Search results of artists will be dynamically added here -->
-                        </ul>
-                    </div>
+            <div class="search_by">
+                <h3>Artists</h3>
+                <ul id="artist_list">
+                    <!-- Search results of artists will be dynamically added here -->
+                </ul>
+            </div>
 
-                    <div class="search_by">
-                        <h3>Genres</h3>
-                        <ul id="genre_list">
-                            <!-- Search results of genres will be dynamically added here -->
-                        </ul>
-                    </div>
-                </div>
+            <div class="search_by">
+                <h3>Genres</h3>
+                <ul id="genre_list">
+                    <!-- Search results of genres will be dynamically added here -->
+                </ul>
+            </div>
+        </div>
+
         <p class="reklame">Skal din sang på? Køb dine credits her</p>
         <button id="credits2" class="creditsknap">
             <p>Køb credits</p>
@@ -74,11 +75,11 @@
         </div>
 
         <div class="previously_played_songs">
-                        <h3>Previously Played Songs</h3>
-                        <ul id="previously_played_list">
-                            <!-- Previously played songs will be dynamically added here -->
-                        </ul>
-                    </div>
+            <h3>Previously Played Songs</h3>
+            <ul id="previously_played_list">
+                <!-- Previously played songs will be dynamically added here -->
+            </ul>
+        </div>
 
         <list class="list" id="listartist">Artist</list>
         <list class="list" id="listalbums">Albums</list>
@@ -86,90 +87,14 @@
 
     <div>
         <div id="sidebar">
-         <img src="vinyl-album.png" class="albumcover">
-         <p id="sangtitel">sangtitel</p>
-         <progress value="50" max="100"></progress>
-
+            <img src="vinyl-album.png" class="albumcover">
+            <p id="sangtitel">sangtitel</p>
+            <progress value="50" max="100"></progress>
         </div>
         <div id="kø">
             <list class="que">kø</list>
         </div>
     </div>
-
-
-    
-   <!-- <div class="site_layout">
-        <div class="main_column">
-            <header class="page_header">
-                <div class="credits_info">
-                    <span>Credits</span>
-                    <p class="credit_count">0</p>
-                    !-- displays the user's current credit balance --
-                    
-                    <button class="credits_icon">
-                        <img src="icons/png/layers.png" alt="Credits">
-                        !-- lets the user add to their credit balance --
-                    </button>
-                </div>
-            </header>
-
-            <main class="main_content_container">
-                <div class="home_page">
-                    !-- Home page (page of suggested songs) --
-                    <div class="suggested_songs">
-                        <h3>Suggested Songs</h3>
-                        <ul id="suggested_list">
-                            !-- Suggested songs will be dynamically added here --
-                        </ul>
-                    </div>
-
-                    <div class="genre_list">
-                        <details class="genres_panel">
-                            <summary>Genres</summary>
-                            <ul id="genre_list"></ul>
-                        </details>
-                    </div>
-
-                    <div class="previously_played_songs">
-                        <h3>Previously Played Songs</h3>
-                        <ul id="previously_played_list">
-                            !-- Previously played songs will be dynamically added here --
-                        </ul>
-                    </div>
-                </div>
-
-                <div id="search_results" hidden>
-                    !-- Search results will be added here --
-                    <div class="search_by">
-                        <h3>Songs</h3>
-                        <ul id="track_list">
-                            !-- Search results of songs will be dynamically added here --
-                        </ul>
-                    </div>
-                    <div class="search_by">
-                        <h3>Albums</h3>
-                        <ul id="album_list">
-                            !-- Search results of albums will be dynamically added here --
-                        </ul>
-                    </div>
-
-                    <div class="search_by">
-                        <h3>Artists</h3>
-                        <ul id="artist_list">
-                            !-- Search results of artists will be dynamically added here --
-                        </ul>
-                    </div>
-
-                    <div class="search_by">
-                        <h3>Genres</h3>
-                        <ul id="genre_list">
-                            !-- Search results of genres will be dynamically added here --
-                        </ul>
-                    </div>
-                </div>
-            </main>
-        </div> 
-    </div> -->
 </body>
 <script src="script.js"></script>
 </html>
