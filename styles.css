@@ -1,7 +1,7 @@
 body { /* her ændre vi bodys margin til 0 sådan vi ikke får en hvid kant rundt om hele siden */
  /* her ændrer vi bodys margin til 0 sådan vi ikke får en hvid kant rundt om hele siden */
     margin: 0;
-    background-color: #15130f;   /* sort baggrund */
+    background-color: rgb(55, 45, 45);   /* sort baggrund */
     color: white;                /* hvid tekst, så den kan læses på det sorte */
 }
 

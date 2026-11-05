@@ -33,74 +33,27 @@
     </div>
     <div class="maindiv">
         <div id="search_results" hidden>
-            <!-- Search results will be added here -->
             <div class="search_by">
                 <h3>Songs</h3>
                 <ul id="track_list">
-                    <!-- Search results of songs will be dynamically added here -->
-                </ul>
-            </div>
-            <div class="search_by">
-                <h3>Albums</h3>
-                <ul id="album_list">
-                    <!-- Search results of albums will be dynamically added here -->
-                </ul>
-            </div>
-
-            <div class="search_by">
-                <h3>Artists</h3>
-                <ul id="artist_list">
-                    <!-- Search results of artists will be dynamically added here -->
-                </ul>
-            </div>
-
-            <div class="search_by">
-                <h3>Genres</h3>
-                <ul id="genre_list">
-                    <!-- Search results of genres will be dynamically added here -->
                 </ul>
             </div>
         </div>
 
-        <p class="reklame">Skal din sang på? Køb dine credits her</p>
             <div class="titel-raekke">
             <h1 class="titel">Skal din sang på?<br>Køb dine credits her.</h1>
-            <button id="credits2" class="creditsknap">
+            <button id="credits2" class="creditsknap" onclick="window.location.href='credits.html'">
             <p>Køb credits →</p>
         </div>
 
         </button>
-        <div class="suggested_songs">
-                        <h3>Suggested Songs</h3>
-                        <ul id="suggested_list">
-                            <!-- Suggested songs will be dynamically added here -->
-                        </ul>
-        </div>
-
-        <div class="genre_list">
-                        <details class="genres_panel">
-                            <summary>Genres</summary>
-                            <ul id="genre_list"></ul>
-                        </details>
-        </div>
-
-        <div class="previously_played_songs">
-            <h3>Previously Played Songs</h3>
-            <ul id="previously_played_list">
-                <!-- Previously played songs will be dynamically added here -->
-            </ul>
-        </div>
-
-        <list class="list" id="listartist">Artist</list>
-        <list class="list" id="listalbums">Albums</list>
+       
     </div>
 
     <div>
         <div id="sidebar">
             <img src="vinyl-album.png" class="albumcover">
             <p id="sangtitel">sangtitel</p>
-            <progress id="songprogress" value="0" max="100"></progress>
-            <span id="songtime">0:00 / 0:00</span>
         </div>
 
         <div id="kø">

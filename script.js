@@ -1,162 +1,84 @@
+// Elementer fra HTML-siden
 const searchInput = document.getElementById("search");
 const searchResults = document.getElementById("search_results");
+const trackList = document.getElementById("track_list");
 const sangtitel = document.getElementById("sangtitel");
-const songprogress = document.getElementById("songprogress");
-const songTime = document.getElementById("songtime");
 const queueList = document.getElementById("queue_list");
-let progressInterval;
 
-const allAlbums = [];
-const queue = [];
-let currentTrack = null;
+let albums = [];         // alle album fra json-filen
+let queue = [];          // sange der venter
+let currentSong = null;  // sangen der spiller lige nu
 
-
-const resultLists = {
-  album: document.getElementById("album_list"),
-  song: document.getElementById("track_list"),
-  artist: document.getElementById("artist_list"),
-  genre: document.getElementById("genre_list"),
-};
-
-async function loadCatalog() {
+// Hent json-filen
+async function loadAlbums() {
   const response = await fetch("albums.json");
-
-  if (!response.ok) {
-    throw new Error(`Could not load albums.json: ${response.status}`);
-  }
-
   const data = await response.json();
-  allAlbums.push(...data.albums);
-
-  searchInput.addEventListener("input", showSearchResults);
+  albums = data.albums;
 }
+loadAlbums();
 
-function showSearchResults() {
-  const searchText = searchInput.value.trim().toLowerCase();
-  searchResults.hidden = searchText === "";
+// Kør søgningen hver gang man skriver i søgefeltet
+searchInput.addEventListener("input", search);
 
-  for (const list of Object.values(resultLists)) {
-    list.replaceChildren();
-  }
+function search() {
+  const text = searchInput.value.trim().toLowerCase();
 
-  if (!searchText) return;
+  // Tøm listen
+  trackList.innerHTML = "";
 
-  const matches = {
-    album: allAlbums.map((album) => album.title),
-    artist: allAlbums.map((album) => album.artist.name),
-    genre: allAlbums.flatMap((album) =>
-      album.tracks.map((track) => track.genre.name)
-    ),
-  };
-
-  for (const [type, values] of Object.entries(matches)) {
-    const uniqueMatches = [...new Set(values)].filter((value) =>
-      value.toLowerCase().includes(searchText)
-    );
-
-    for (const value of uniqueMatches) {
-      const item = document.createElement("li");
-      item.textContent = value;
-      resultLists[type].append(item);
-    }
-  }
-
-  const songMatches = allAlbums
-    .flatMap((album) =>
-      album.tracks.map((track) => ({
-        track,
-        label: `${track.title} — ${album.artist.name} (${album.title})`,
-      }))
-    )
-    .filter(({ label }) => label.toLowerCase().includes(searchText));
-
-  for (const { track, label } of songMatches) {
-    const item = document.createElement("li");
-    const chooseButton = document.createElement("button");
-
-    item.append(document.createTextNode(`${label} `));
-    chooseButton.type = "button";
-    chooseButton.textContent = "Vælg";
-    chooseButton.addEventListener("click", () => {
-      queue.push({ track, label });
-      updateQueueDisplay();
-
-      if (!currentTrack) {
-        playNextTrack();
-      }
-
-      searchInput.value = "";
-      showSearchResults();
-    });
-
-    item.append(chooseButton);
-    resultLists.song.append(item);
-  }
-}
-
-function updateQueueDisplay() {
-  queueList.replaceChildren();
-
-  for (const { label } of queue) {
-    const item = document.createElement("li");
-    item.textContent = label;
-    queueList.append(item);
-  }
-}
-
-function playNextTrack() {
-  currentTrack = queue.shift() ?? null;
-  updateQueueDisplay();
-
-  if (!currentTrack) {
-    sangtitel.textContent = "Ingen sang valgt";
-    songprogress.value = 0;
-    songprogress.max = 100;
-    songTime.textContent = "0:00 / 0:00";
+  // Skjul resultater hvis feltet er tomt
+  if (text === "") {
+    searchResults.hidden = true;
     return;
   }
+  searchResults.hidden = false;
 
-  sangtitel.textContent = currentTrack.track.title;
-  simulateProgress(currentTrack.track.duration_ms);
-}
-
-function simulateProgress(durationMs) {
-  clearInterval(progressInterval);
-
-  const durationSeconds = durationMs / 1000;
-  const startTime = performance.now();
-
-  songprogress.max = durationSeconds;
-  songprogress.value = 0;
-
-  function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = Math.floor(seconds % 60);
-    return `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
-  }
-
-  function updateProgress() {
-    const elapsed = Math.min(
-      (performance.now() - startTime) / 1000,
-      durationSeconds
-    );
-
-    songprogress.value = elapsed;
-    songTime.textContent =
-      `${formatTime(elapsed)} / ${formatTime(durationSeconds)}`;
-
-    if (elapsed >= durationSeconds) {
-      clearInterval(progressInterval);
-      playNextTrack();
+  // Gå alle album og alle sange igennem
+  for (const album of albums) {
+    for (const track of album.tracks) {
+      if (track.title.toLowerCase().includes(text)) {
+        addSong(track.title + " - " + album.artist.name);
+      }
     }
   }
-
-  updateProgress();
-  if (durationSeconds > 0) {
-    progressInterval = setInterval(updateProgress, 250);
-  }
 }
 
-loadCatalog().catch((error) => {
-  console.error("Could not load the music catalog:", error);
-});
+// Tilføj en sang til søgeresultaterne med en "Vælg"-knap
+function addSong(label) {
+  const li = document.createElement("li");
+  li.textContent = label + " ";
+
+  const button = document.createElement("button");
+  button.textContent = "Vælg";
+  button.addEventListener("click", function () {
+    if (currentSong === null) {
+      // Der spiller ingenting, så sangen starter med det samme
+      currentSong = label;
+      sangtitel.textContent = label;
+    } else if (queue.length >= 3) {
+      // Køen er fuld
+      alert("Køen er fuld (maks. 3 sange)");
+      return;
+    } else {
+      // Der spiller noget, så sangen stilles bagerst i køen
+      queue.push(label);
+      showQueue();
+    }
+
+    searchInput.value = "";
+    search();
+  });
+
+  li.appendChild(button);
+  trackList.appendChild(li);
+}
+
+// Vis køen
+function showQueue() {
+  queueList.innerHTML = "";
+  for (const song of queue) {
+    const li = document.createElement("li");
+    li.textContent = song;
+    queueList.appendChild(li);
+  }
+}
